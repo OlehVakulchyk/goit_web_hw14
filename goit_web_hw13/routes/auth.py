@@ -25,14 +25,15 @@ security = HTTPBearer()
 
 
 @router.post(
-    "/signup", response_model=UserResponse, status_code=status.HTTP_201_CREATED
-)
+    "/signup", response_model=UserResponse, 
+    status_code=status.HTTP_201_CREATED
+    )
 async def signup(
     body: UserModel,
     background_tasks: BackgroundTasks,
     request: Request,
     db: Session = Depends(get_db),
-) -> dict | HTTPException:
+    ) -> dict | HTTPException:
     """
     Creates the '/signup' route for user registration.
     The signup function for the '/signup' route handles the POST

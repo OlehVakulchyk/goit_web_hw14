@@ -92,6 +92,5 @@ async def update_avatar(email: str, url: str, db: Session) -> User:
     """
     user = await get_user_by_email(email, db)
     user.avatar = url
-    print(user.avatar)
     db.commit()
     return user
